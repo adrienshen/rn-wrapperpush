@@ -48,7 +48,7 @@ export default class RNOneSignal extends Component {
 
         OneSignal.setRequiresUserPrivacyConsent(requiresConsent);
 
-        OneSignal.init("b2f7f966-d8cc-11e4-bed1-df8f05be55ba", {kOSSettingsKeyAutoPrompt : true});
+        OneSignal.init("a58ca839-9e6a-43a9-8d27-489540407383", {kOSSettingsKeyAutoPrompt : true});
     }
 
     validateEmail(email) {
@@ -121,7 +121,7 @@ export default class RNOneSignal extends Component {
                     </Text>
                     <Text style={styles.instructions}>
                         Double tap R on your keyboard to reload,{'\n'}
-                        Shake or press menu button for dev menu
+                        Shake or press menu button for dev menu3
                     </Text>
                     <View style={{flexDirection: 'row', overflow: 'hidden'}}>
                         <View style={styles.buttonContainer}>
