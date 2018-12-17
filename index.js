@@ -22,6 +22,7 @@ import {
 } from 'react-native';
 
 import OneSignal from 'react-native-onesignal';
+import MyInlineWeb from './webviewcontainer';
 
 let imageUri = 'https://cdn-images-1.medium.com/max/300/1*7xHdCFeYfD8zrIivMiQcCQ.png'
 
@@ -107,6 +108,7 @@ export default class RNOneSignal extends Component {
     }
 
     render() {
+        return <MyInlineWeb />
         return (
             <ScrollView style={styles.scrollView}>
                 <View style={styles.container}>
@@ -124,7 +126,7 @@ export default class RNOneSignal extends Component {
                         Shake or press menu button for dev menu3
                     </Text>
                     <View style={{flexDirection: 'row', overflow: 'hidden'}}>
-                        <View style={styles.buttonContainer}>
+                        {/* <View style={styles.buttonContainer}>
                             <Button style={styles.button}
                                 onPress={() => {
                                     OneSignal.getTags((tags) => {
@@ -136,8 +138,8 @@ export default class RNOneSignal extends Component {
                                 title="Get Tags"
                                 color={this.state.buttonColor}
                             />
-                        </View>
-                        <View style={styles.buttonContainer}>
+                        </View> */}
+                        {/* <View style={styles.buttonContainer}>
                             <Button style={styles.button}
                                 onPress={() => {
                                     console.log("Sending tags");
@@ -147,10 +149,10 @@ export default class RNOneSignal extends Component {
                                 title="Send Tags"
                                 color={this.state.buttonColor}
                             />
-                        </View>
+                        </View> */}
                     </View>
                     <View style={{flexDirection: 'row', overflow: 'hidden'}}>
-                        <View style={styles.buttonContainer}>
+                        {/* <View style={styles.buttonContainer}>
                             <Button style={styles.button}
                                 disabled={!this.state.emailEnabled}
                                 onPress={() => {
@@ -165,11 +167,11 @@ export default class RNOneSignal extends Component {
                                 title="Set Test Email"
                                 color={this.state.buttonColor}
                             />
-                        </View>
+                        </View> */}
                         <ActivityIndicator style={{width: this.state.activityWidth, marginLeft : this.state.activityMargin}}
                             animating={this.state.animatingEmailButton}
                         />
-                        <View style={styles.buttonContainer}>
+                        {/* <View style={styles.buttonContainer}>
                             <Button style={styles.button}
                                 onPress={() => {
                                     OneSignal.logoutEmail((error) => {
@@ -183,9 +185,9 @@ export default class RNOneSignal extends Component {
                                 title="Logout Email"
                                 color={this.state.buttonColor}
                             />
-                        </View>
+                        </View> */}
                     </View>
-                    <KeyboardAvoidingView style={{width: 300, height: 40, borderColor: '#d45653', borderWidth: 2, borderRadius: 5, marginTop: 8}}>
+                    {/* <KeyboardAvoidingView style={{width: 300, height: 40, borderColor: '#d45653', borderWidth: 2, borderRadius: 5, marginTop: 8}}>
                         <TextInput style={styles.textInput}
                                 underlineColorAndroid='rgba(0, 0, 0, 0)'
                                 placeholderText='testing'
@@ -202,8 +204,8 @@ export default class RNOneSignal extends Component {
                                     this.setState({emailEnabled : this.validateEmail(newText), email : newText});
                                 }}
                             />
-                    </KeyboardAvoidingView>
-                    <View style={styles.buttonContainer}>
+                    </KeyboardAvoidingView> */}
+                    {/* <View style={styles.buttonContainer}>
                         <Button style={styles.button}
                            onPress={() => {
                               OneSignal.promptLocation();
@@ -211,8 +213,8 @@ export default class RNOneSignal extends Component {
                            title="Prompt Location"
                            color={this.state.buttonColor}
                         />
-                    </View>
-                    <View style={styles.buttonContainer}>
+                    </View> */}
+                    {/* <View style={styles.buttonContainer}>
                         <Button style={styles.button}
                             onPress={() => {
                                 OneSignal.getPermissionSubscriptionState((subscriptionState) => {
@@ -233,7 +235,7 @@ export default class RNOneSignal extends Component {
                             title={this.state.privacyButtonTitle}
                             color={this.state.buttonColor}
                         />
-                    </View>
+                    </View> */}
                     <Text style={styles.jsonDebugLabelText}>
                         {this.state.jsonDebugText}
                     </Text>
