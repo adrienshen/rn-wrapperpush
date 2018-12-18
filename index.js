@@ -5,23 +5,11 @@
  */
 
 import React, { Component } from "react";
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ActivityIndicator,
-  Platform,
-  ScrollView,
-} from "react-native";
-import { NativeRouter, Route, Link } from "react-router-native";
+import { AppRegistry, Platform } from "react-native";
 import OneSignal from "react-native-onesignal";
 import MyInlineWeb from "./webviewcontainer";
 
 const ONESIGNAL_TOKEN = "a58ca839-9e6a-43a9-8d27-489540407383";
-let imageUri =
-  "https://cdn-images-1.medium.com/max/300/1*7xHdCFeYfD8zrIivMiQcCQ.png";
 
 export default class RNOneSignal extends Component {
   constructor(properties) {
@@ -32,16 +20,8 @@ export default class RNOneSignal extends Component {
     let requiresConsent = false;
 
     this.state = {
-      emailEnabled: false,
-      animatingEmailButton: false,
-      initialOpenFromPush: "Did NOT open from push",
-      activityWidth: 0,
-      width: 0,
-      activityMargin: 0,
-      buttonColor: Platform.OS == "ios" ? "#ffffff" : "#d45653",
       jsonDebugText: "",
-      privacyButtonTitle: "Privacy Consent: Not Granted",
-      requirePrivacyConsent: requiresConsent
+      privacyButtonTitle: "Privacy Consent: Not Granted"
     };
 
     OneSignal.setRequiresUserPrivacyConsent(requiresConsent);
@@ -118,88 +98,8 @@ export default class RNOneSignal extends Component {
   };
 
   render() {
-    return (
-      <MyInlineWeb handleWebViewMessage={this.handleWebViewMessage} />
-    );
+    return <MyInlineWeb handleWebViewMessage={this.handleWebViewMessage} />;
   }
 }
-
-const Settings = props => (
-  <ScrollView style={styles.scrollView}>
-    <View style={styles.container}>
-      <View>
-        <Image style={styles.imageStyle} source={{ uri: imageUri }} />
-      </View>
-      <Text style={styles.welcome}>Welcome to React Native!</Text>
-      <Text style={styles.instructions}>To get started, edit index.js</Text>
-      <Text style={styles.instructions}>
-        Double tap R on your keyboard to reload,{"\n"}
-        Shake or press menu button for dev menu3
-      </Text>
-      <View style={{ flexDirection: "row", overflow: "hidden" }} />
-      <View style={{ flexDirection: "row", overflow: "hidden" }}>
-        <ActivityIndicator
-          style={{
-            width: this.state.activityWidth,
-            marginLeft: this.state.activityMargin
-          }}
-          animating={this.state.animatingEmailButton}
-        />
-      </View>
-      <Text style={styles.jsonDebugLabelText}>{this.state.jsonDebugText}</Text>
-    </View>
-  </ScrollView>
-);
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: "#F5FCFF"
-  },
-  container: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5,
-    marginHorizontal: 10
-  },
-  jsonDebugLabelText: {
-    textAlign: "left",
-    color: "#333333",
-    marginBottom: 5,
-    marginHorizontal: 10
-  },
-  buttonContainer: {
-    flexDirection: "row",
-    overflow: "hidden",
-    borderRadius: 10,
-    marginVertical: 10,
-    marginHorizontal: 10,
-    backgroundColor: "#d45653"
-  },
-  button: {
-    color: "#000000",
-    flex: 1
-  },
-  imageStyle: {
-    height: 200,
-    width: 200,
-    marginTop: 20
-  },
-  textInput: {
-    marginHorizontal: 10,
-    height: 40
-  }
-});
 
 AppRegistry.registerComponent("RNOneSignal", () => RNOneSignal);
