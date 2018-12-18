@@ -15,6 +15,7 @@ class MyInlineWeb extends Component {
         source={{ uri: app }}
         originWhitelist={["*"]}
         injectedJavaScript={injectedJs}
+        useWebKit={true}
         onMessage={event =>
           this.props.handleWebViewMessage(event.nativeEvent.data)
         }
