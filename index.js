@@ -92,7 +92,7 @@ export default class RNOneSignal extends Component {
   triggerSubscribeNativePush = async () => {
     console.log("3. register OneSignal begins");
     // Do OneSignal stuff
-    OneSignal.init(ONESIGNAL_TOKEN, { kOSSettingsKeyAutoPrompt: true });
+    await OneSignal.init(ONESIGNAL_TOKEN, { kOSSettingsKeyAutoPrompt: true });
     var providedConsent = await OneSignal.userProvidedPrivacyConsent();
     console.log("providedConsent: ", providedConsent);
 
@@ -113,6 +113,8 @@ export default class RNOneSignal extends Component {
     OneSignal.addEventListener("received", this.onReceived);
     OneSignal.addEventListener("opened", this.onOpened);
     OneSignal.addEventListener("ids", this.onIds);
+
+    alert("Push subscribed");
   };
 
   render() {
