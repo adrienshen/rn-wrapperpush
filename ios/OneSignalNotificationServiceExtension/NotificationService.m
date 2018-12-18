@@ -25,7 +25,7 @@
     self.contentHandler = contentHandler;
     self.bestAttemptContent = [request.content mutableCopy];
     
-    // [RCTOneSignalExtensionService didReceiveNotificationRequest:self.receivedRequest withContent:self.bestAttemptContent];
+    [RCTOneSignalExtensionService didReceiveNotificationRequest:self.receivedRequest withContent:self.bestAttemptContent];
     
     // DEBUGGING: Uncomment the 2 lines below and comment out the one above to ensure this extension is excuting
     //            Note, this extension only runs when mutable-content is set
